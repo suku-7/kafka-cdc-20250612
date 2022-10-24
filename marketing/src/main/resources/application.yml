@@ -7,11 +7,18 @@ spring:
 
 spring:
   profiles: default
+  datasource:
+    url: jdbc:h2:tcp://localhost:9099/./test
+    username: sa
+    password: passwd
+    driverClassName: org.h2.Driver
   jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: true    
   cloud:
     stream:
       kafka:

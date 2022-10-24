@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Table(name="SyncOrder_table")
+@Table(name="SYNC_ORDER_TABLE")
 @Data
 
 public class SyncOrder  {
