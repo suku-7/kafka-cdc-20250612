@@ -14,7 +14,7 @@ public class Suggestion  {
 
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     
     

@@ -14,7 +14,7 @@ public class SyncOrder  {
 
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     
     
