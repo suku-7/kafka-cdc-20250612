@@ -4,4 +4,4 @@ sudo apt install iputils-ping
 pip install httpie
 
 cd mysql
-docker-compse up
+docker-compose up
