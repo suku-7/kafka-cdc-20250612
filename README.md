@@ -1,6 +1,6 @@
 # Model
-## kafka-cdc-20250612 (cdc 설정을 통한 )
-www.msaez.io/#/storming/C7pO0ZuWtXXxIKenocD9EMPYrxw2/6170b502533a967cfa212d4417243d1e
+## kafka-cdc-20250612 (주문 데이터 실시간 동기화 확인-CDC)
+https://labs.msaez.io/#/189596125/storming/6170b502533a967cfa212d4417243d1f
 
 - 주문 데이터 실시간 동기화 확인 (CDC 성공)
 - 주문 생성: http POST :8081/orders ... 명령으로 Order 서비스에 새로운 주문 생성 (예: order/3).
