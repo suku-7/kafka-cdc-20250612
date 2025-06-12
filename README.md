@@ -37,7 +37,7 @@ www.msaez.io/#/storming/C7pO0ZuWtXXxIKenocD9EMPYrxw2/6170b502533a967cfa212d44172
 ---
 5. JDBC 커넥터 실행
 - $PWD는 현재 카프카 홈이라는 내폴더라는걸 저장한다. 저장경로, 윈도우 환경변수랑 비슷한거다?
-
+```
 - cd ~
 - cd /workspace/kafka-cdc-20250612/kafka-connect/kafka_2.13-2.7.1/
 - export kafka_home=$PWD
@@ -46,7 +46,7 @@ www.msaez.io/#/storming/C7pO0ZuWtXXxIKenocD9EMPYrxw2/6170b502533a967cfa212d44172
 - echo $kafka_home
 - mkdir -p connectors
 - cd connectors
-
+```
 - cp ../../confluentinc-kafka-connect-jdbc-10.2.5.zip ./
 - unzip confluentinc-kafka-connect-jdbc-10.2.5.zip
 
