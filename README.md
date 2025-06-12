@@ -18,13 +18,13 @@ www.msaez.io/#/storming/C7pO0ZuWtXXxIKenocD9EMPYrxw2/6170b502533a967cfa212d44172
 ## 터미널 작성 참고용
 1. sdk install java
 - 처음 실행하면 mysql 3306포트가 실행되었음
----
+
 2. Kafka connect를 위한 JDBC드라이브 다운 (2181포트 주키퍼 실행)
 ```
 git clone https://github.com/acmexii/kafka-connect.git
 cd kafka-connect
 ```
----
+
 3. Kafka를 수동설치 후 주키퍼 실행
 ```
 curl "https://archive.apache.org/dist/kafka/2.7.1/kafka_2.13-2.7.1.tgz" -o ./kafka-2.7.1.tgz
@@ -33,16 +33,16 @@ tar xvfz kafka-2.7.1.tgz
 cd kafka_2.13-2.7.1/
 bin/zookeeper-server-start.sh config/zookeeper.properties &
 ```
----
+
 4. kafka 데몬실행 (9092포트 실행)
 ```
 cd kafka-connect
 cd kafka_2.13-2.7.1/
 bin/kafka-server-start.sh config/server.properties &
 ```
----
+
 5. JDBC 커넥터 실행
-- $PWD는 현재 카프카 홈이라는 내폴더라는걸 저장한다. 저장경로, 윈도우 환경변수랑 비슷한거다?
+- $PWD는 현재 카프카 홈이라는 내폴더라는걸 저장한다. 윈도우 환경변수랑 비슷하다.
 ```
 - cd ~
 - cd /workspace/kafka-cdc-20250612/kafka-connect/kafka_2.13-2.7.1/
@@ -58,16 +58,16 @@ bin/kafka-server-start.sh config/server.properties &
 
 - plugin.path=/workspace/kafka-cdc-20250612/kafka-connect/kafka_2.13-2.7.1/connectors
 ```
----
+
 6. VI가 아니라 VS-CODE를 이용해서 connect-distributed.properties 맨아래 코드 추가
----
+
 7. kafka connect 서버 실행 (소스 커넥터 실행)
 ```
 cd $kafka_home
 bin/connect-distributed.sh config/connect-distributed.properties 
 $kafka_home/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 ```
----
+
 8. 소스커넥터 설치 터미널에 추가
 ```
 curl -i -X POST -H "Accept:application/json" \
@@ -91,21 +91,21 @@ curl -i -X POST -H "Accept:application/json" \
 ```
 http :8083/connectors / mysql DB확인
 ```
----
+
 9. 오더 실행
 ```
 Order의 application.yml을 열어 default profile의 datasource를 확인 및 수정함
 cd order
 mvn spring-boot:run
 ```
----
+
 10. SYNC_ORDER_TABLE 토픽 추가 목록 확인
 ```
 http POST :8081/orders productId=1 qty=10 customerId=1000 price=10000
 http POST :8081/orders productId=2 qty=20 customerId=2000 price=20000
 $kafka_home/bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic SYNC_ORDER_TABLE --from-beginning
 ```
----
+
 11. 싱크 커넥터 설치
 ```
 curl -i -X POST -H "Accept:application/json" \
@@ -135,7 +135,7 @@ mysql --user=root --password=1234
 use my-database;
 show tables;
 ```
----
+
 13. marketing 서비스 수정 및 실행 (8082포트)
 ```
   datasource:
@@ -148,7 +148,7 @@ show tables;
 cd marketing
 mvn spring-boot:run
 ```
----
+
 13. 동기화 데이터 조회 
 ```
 http GET :8082/syncOrders
